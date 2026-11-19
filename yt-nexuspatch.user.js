@@ -8,7 +8,7 @@
 // @name:pt-BR          YT + Music Nexus Patch
 // @name:it             YT + Music Nexus Patch
 // @namespace           https://greasyfork.org/users/ensar
-// @version             4.2
+// @version             4.2.1
 // @description         One Nexus. Two Platforms. A Better Experience. A growing collection of enhancements and customizations for YouTube and YouTube Music, bringing both platforms together under one unified experience. Currently features custom Premium-inspired logos with light and dark theme support and automatic updates.
 // @description:tr      Tek Merkez. İki Platform. Daha İyi Bir Deneyim. YouTube ve YouTube Music için geliştirilen, her iki platformu tek bir bütünleşik deneyimde buluşturan özelleştirmeler ve iyileştirmeler koleksiyonu. Şu anda açık ve koyu tema desteği ile Premium tarzı özel logolar ve otomatik güncelleme desteği sunar.
 // @description:es      Un solo centro. Dos plataformas. Una mejor experiencia. Una colección de mejoras y personalizaciones para YouTube y YouTube Music que reúne ambas plataformas en una experiencia unificada. Actualmente incluye logotipos personalizados inspirados en Premium, compatibles con los temas claro y oscuro, y actualización automática.
@@ -17,6 +17,7 @@
 // @description:ru      Один центр. Две платформы. Лучший опыт. Коллекция улучшений и настроек для YouTube и YouTube Music, объединяющая обе платформы в единую экосистему. В текущей версии доступны пользовательские логотипы в стиле Premium с поддержкой светлой и тёмной тем оформления и автоматическим обновлением.
 // @description:pt-BR   Um só lugar. Duas plataformas. Uma experiência melhor. Uma coleção de melhorias e personalizações para YouTube e YouTube Music, reunindo ambas as plataformas em uma experiência unificada. Atualmente inclui logotipos personalizados inspirados no Premium, compatibilidade com temas claro e escuro e atualização automática.
 // @description:it      Un unico centro. Due piattaforme. Un'esperienza migliore. Una raccolta di miglioramenti e personalizzazioni per YouTube e YouTube Music, che riunisce entrambe le piattaforme in un'esperienza unificata. Attualmente include loghi personalizzati ispirati a Premium, supporto per i temi chiaro e scuro e aggiornamento automatico.
+// @supportURL          https://github.com/enswrdev/yt-nexuspatch/issues
 // @icon                https://images.icon-icons.com/1099/PNG/512/1485482355-youtube_78661.png
 // @author              еиsаг
 // @license             MIT
