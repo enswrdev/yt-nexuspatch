@@ -5,16 +5,16 @@
 </p>
 
 <p align="center">
-A custom userscript designed to enhance and unify the YouTube and YouTube Music experience.
-</p>
-
-<p align="center">
-<a href="https://github.com/enswrdev/yt-nexuspatch">
-<img src="https://img.shields.io/github/stars/enswrdev/yt-nexuspatch?style=flat&color=red" alt="GitHub Stars">
-</a>
-<img src="https://img.shields.io/badge/Version-4.2-red?style=flat" alt="Version">
-<img src="https://img.shields.io/badge/Platforms-YouTube%20%26%20Music-red?style=flat" alt="Platforms">
-<img src="https://img.shields.io/badge/License-GPL--2.0-blue?style=flat" alt="License">
+  <a href="https://github.com/enswrdev/yt-nexuspatch/stargazers">
+    <img src="https://img.shields.io/github/stars/enswrdev/yt-nexuspatch?style=flat&color=red" alt="GitHub Stars">
+  </a>
+  <a href="https://github.com/enswrdev/yt-nexuspatch/releases">
+    <img src="https://img.shields.io/github/v/tag/enswrdev/yt-nexuspatch?style=flat&color=red" alt="Latest Version">
+  </a>
+  <img src="https://img.shields.io/badge/Platforms-YouTube%20%26%20Music-red?style=flat" alt="Platforms">
+  <a href="https://github.com/enswrdev/yt-nexuspatch">
+    <img src="https://img.shields.io/github/license/enswrdev/yt-nexuspatch?style=flat" alt="License">
+  </a>
 </p>
 
 ---
