@@ -8,9 +8,9 @@
 // @name:pt-BR          YT + Music Nexus Patch
 // @name:it             YT + Music Nexus Patch
 // @namespace           https://greasyfork.org/users/ensar
-// @version             5.0
-// @description         One Nexus. Two Platforms. A Better Experience. A growing collection of enhancements and customizations for YouTube and YouTube Music, bringing both platforms together under one unified experience. Currently features custom Premium-inspired logos with light and dark theme support, a built-in network-level ad blocker and automatic updates.
-// @description:tr      Tek Merkez. İki Platform. Daha İyi Bir Deneyim. YouTube ve YouTube Music için geliştirilen, her iki platformu tek bir bütünleşik deneyimde buluşturan özelleştirmeler ve iyileştirmeler koleksiyonu. Şu anda açık ve koyu tema desteği ile Premium tarzı özel logolar, yerleşik ağ seviyesinde reklam engelleyici ve otomatik güncelleme desteği sunar.
+// @version             5.2.0
+// @description         One Nexus. Two Platforms. A Better Experience. A growing collection of enhancements and customizations for YouTube and YouTube Music, bringing both platforms together under one unified experience. Currently features custom Premium-inspired logos with light and dark theme support, a built-in network-level ad blocker with a one-click diagnostic report tool, and automatic updates.
+// @description:tr      Tek Merkez. İki Platform. Daha İyi Bir Deneyim. YouTube ve YouTube Music için geliştirilen, her iki platformu tek bir bütünleşik deneyimde buluşturan özelleştirmeler ve iyileştirmeler koleksiyonu. Şu anda açık ve koyu tema desteği ile Premium tarzı özel logolar, tek tuşla teşhis raporu alabilen yerleşik ağ seviyesinde reklam engelleyici ve otomatik güncelleme desteği sunar.
 // @description:es      Un solo centro. Dos plataformas. Una mejor experiencia. Una colección de mejoras y personalizaciones para YouTube y YouTube Music que reúne ambas plataformas en una experiencia unificada. Actualmente incluye logotipos personalizados inspirados en Premium, compatibles con los temas claro y oscuro, y actualización automática.
 // @description:de      Ein Zentrum. Zwei Plattformen. Ein besseres Erlebnis. Eine Sammlung von Erweiterungen und Anpassungen für YouTube und YouTube Music, die beide Plattformen in einem einheitlichen Erlebnis vereint. Derzeit mit benutzerdefinierten, von Premium inspirierten Logos, Unterstützung für helle und dunkle Designs sowie automatischer Aktualisierung.
 // @description:fr      Un seul centre. Deux plateformes. Une meilleure expérience. Une collection d'améliorations et de personnalisations pour YouTube et YouTube Music, réunissant les deux plateformes dans une expérience unifiée. Inclut actuellement des logos personnalisés inspirés de Premium, compatibles avec les thèmes clair et sombre, ainsi qu'une mise à jour automatique.
@@ -65,13 +65,89 @@
         }
     }
 
-    const MENU_ITEMS = [
-        ['debug', 'Konsol debug'],
-        ['ytLogo', 'YouTube Premium logo'],
-        ['musicLogo', 'YouTube Music Premium logo'],
-        ['gameBlock', 'Oyun engelleme'],
-        ['adBlock', 'Reklam engelleme']
-    ];
+    const I18N = {
+        en: {
+            debug: 'Console debug', ytLogo: 'YouTube Premium logo', musicLogo: 'YouTube Music Premium logo',
+            gameBlock: 'Game blocking', adBlock: 'Ad blocking', on: 'ON', off: 'OFF',
+            total: 'total events', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Copy ad report', reportCopied: 'Ad report copied to clipboard',
+            reportFailed: 'Could not copy automatically - select and copy the text below',
+            openIssue: 'Open GitHub issue', feedback: 'GreasyFork feedback', close: 'Close'
+        },
+        tr: {
+            debug: 'Konsol debug', ytLogo: 'YouTube Premium logo', musicLogo: 'YouTube Music Premium logo',
+            gameBlock: 'Oyun engelleme', adBlock: 'Reklam engelleme', on: 'AÇIK', off: 'KAPALI',
+            total: 'toplam olay', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Reklam raporu kopyala', reportCopied: 'Reklam raporu panoya kopyalandı',
+            reportFailed: 'Otomatik kopyalanamadı - aşağıdaki metni seçip kopyalayın',
+            openIssue: 'GitHub sorunu aç', feedback: 'GreasyFork geri bildirim', close: 'Kapat'
+        },
+        es: {
+            debug: 'Depuración en consola', ytLogo: 'Logotipo de YouTube Premium', musicLogo: 'Logotipo de YouTube Music Premium',
+            gameBlock: 'Bloqueo de juegos', adBlock: 'Bloqueo de anuncios', on: 'ACTIVADO', off: 'DESACTIVADO',
+            total: 'eventos totales', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Copiar informe de anuncios', reportCopied: 'Informe copiado al portapapeles',
+            reportFailed: 'No se pudo copiar automáticamente: selecciona y copia el texto de abajo',
+            openIssue: 'Abrir issue en GitHub', feedback: 'Comentarios en GreasyFork', close: 'Cerrar'
+        },
+        de: {
+            debug: 'Konsolen-Debug', ytLogo: 'YouTube-Premium-Logo', musicLogo: 'YouTube Music-Premium-Logo',
+            gameBlock: 'Spiele blockieren', adBlock: 'Werbung blockieren', on: 'AN', off: 'AUS',
+            total: 'Ereignisse insgesamt', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Werbebericht kopieren', reportCopied: 'Werbebericht in die Zwischenablage kopiert',
+            reportFailed: 'Automatisches Kopieren fehlgeschlagen - Text unten markieren und kopieren',
+            openIssue: 'GitHub-Issue öffnen', feedback: 'GreasyFork-Feedback', close: 'Schließen'
+        },
+        fr: {
+            debug: 'Débogage console', ytLogo: 'Logo YouTube Premium', musicLogo: 'Logo YouTube Music Premium',
+            gameBlock: 'Blocage des jeux', adBlock: 'Blocage des publicités', on: 'ACTIVÉ', off: 'DÉSACTIVÉ',
+            total: 'événements au total', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Copier le rapport de pubs', reportCopied: 'Rapport copié dans le presse-papiers',
+            reportFailed: "Copie automatique impossible - sélectionnez et copiez le texte ci-dessous",
+            openIssue: 'Ouvrir un ticket GitHub', feedback: 'Avis sur GreasyFork', close: 'Fermer'
+        },
+        ru: {
+            debug: 'Отладка в консоли', ytLogo: 'Логотип YouTube Premium', musicLogo: 'Логотип YouTube Music Premium',
+            gameBlock: 'Блокировка игр', adBlock: 'Блокировка рекламы', on: 'ВКЛ', off: 'ВЫКЛ',
+            total: 'всего событий', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Скопировать отчёт о рекламе', reportCopied: 'Отчёт скопирован в буфер обмена',
+            reportFailed: 'Не удалось скопировать автоматически - выделите и скопируйте текст ниже',
+            openIssue: 'Открыть issue на GitHub', feedback: 'Отзыв на GreasyFork', close: 'Закрыть'
+        },
+        'pt-BR': {
+            debug: 'Depuração no console', ytLogo: 'Logotipo do YouTube Premium', musicLogo: 'Logotipo do YouTube Music Premium',
+            gameBlock: 'Bloqueio de jogos', adBlock: 'Bloqueio de anúncios', on: 'ATIVADO', off: 'DESATIVADO',
+            total: 'eventos no total', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Copiar relatório de anúncios', reportCopied: 'Relatório copiado para a área de transferência',
+            reportFailed: 'Não foi possível copiar automaticamente - selecione e copie o texto abaixo',
+            openIssue: 'Abrir issue no GitHub', feedback: 'Comentários no GreasyFork', close: 'Fechar'
+        },
+        it: {
+            debug: 'Debug in console', ytLogo: 'Logo YouTube Premium', musicLogo: 'Logo YouTube Music Premium',
+            gameBlock: 'Blocco dei giochi', adBlock: 'Blocco degli annunci', on: 'ATTIVO', off: 'DISATTIVATO',
+            total: 'eventi totali', pass: 'SELFTEST PASS', fail: 'SELFTEST FAIL',
+            copyReport: 'Copia rapporto annunci', reportCopied: 'Rapporto copiato negli appunti',
+            reportFailed: 'Copia automatica non riuscita: seleziona e copia il testo sotto',
+            openIssue: 'Apri issue su GitHub', feedback: 'Feedback su GreasyFork', close: 'Chiudi'
+        }
+    };
+
+    function detectLanguage() {
+        const list = (navigator.languages && navigator.languages.length)
+            ? navigator.languages
+            : [navigator.language || 'en'];
+        for (const tag of list) {
+            const lower = String(tag).toLowerCase();
+            if (lower.indexOf('pt') === 0) return 'pt-BR';
+            const base = lower.split('-')[0];
+            if (I18N[base]) return base;
+        }
+        return 'en';
+    }
+
+    const T = I18N[detectLanguage()];
+
+    const MENU_ITEMS = ['debug', 'ytLogo', 'musicLogo', 'gameBlock', 'adBlock'];
     const menuIds = {};
 
     function applyOptions() {
@@ -85,17 +161,23 @@
 
     function buildMenu() {
         if (!registerMenu) return;
-        MENU_ITEMS.forEach(([key, label]) => {
+        MENU_ITEMS.forEach(key => {
             if (menuIds[key] !== undefined && unregisterMenu) {
                 try { unregisterMenu(menuIds[key]); } catch (e) {}
             }
             try {
                 menuIds[key] = registerMenu(
-                    `Nexus Patch → ${label}: ${config[key] ? 'AÇIK' : 'KAPALI'}`,
+                    `Nexus Patch → ${T[key]}: ${config[key] ? T.on : T.off}`,
                     () => toggleOption(key)
                 );
             } catch (e) {}
         });
+        if (menuIds.copyReport !== undefined && unregisterMenu) {
+            try { unregisterMenu(menuIds.copyReport); } catch (e) {}
+        }
+        try {
+            menuIds.copyReport = registerMenu(`Nexus Patch → ${T.copyReport}`, () => copyAdReport());
+        } catch (e) {}
     }
 
     function toggleOption(key) {
@@ -104,7 +186,7 @@
         applyOptions();
         buildMenu();
         adDebug.push('option', { source: key, enabled: config[key] });
-        if (key === 'ytLogo' || key === 'musicLogo') location.reload();
+        if (key === 'ytLogo' || key === 'musicLogo') refreshBranding();
     }
 
     const LOGO_MAIN = "data:image/svg+xml,%3Csvg xmlns:dc=\'http://purl.org/dc/elements/1.1/\' xmlns:cc=\'http://creativecommons.org/ns%23\' xmlns:rdf=\'http://www.w3.org/1999/02/22-rdf-syntax-ns%23\' xmlns:svg=\'http://www.w3.org/2000/svg\' xmlns=\'http://www.w3.org/2000/svg\' id=\'SVGRoot\' version=\'1.1\' viewBox=\'0 0 846 174\' height=\'80px\' width=\'391px\'%3E%3Cdefs id=\'defs855\'%3E%3Cstyle id=\'style2\' /%3E%3C/defs%3E%3Cmetadata id=\'metadata858\'%3E%3Crdf:RDF%3E%3Ccc:Work rdf:about=\'\'%3E%3Cdc:format%3Eimage/svg+xml%3C/dc:format%3E%3Cdc:type rdf:resource=\'http://purl.org/dc/dcmitype/StillImage\' /%3E%3Cdc:title%3E%3C/dc:title%3E%3C/cc:Work%3E%3C/rdf:RDF%3E%3C/metadata%3E%3Cg id=\'layer1\'%3E%3Cg transform=\'translate(0,0.36)\' data-name=\'Layer 2\' id=\'Layer_2\'%3E%3Cg data-name=\'Layer 1\' id=\'Layer_1-2\'%3E%3Cpath style=\'fill:%23ff0000\' id=\'path6\' d=\'M 242.88,27.11 A 31.07,31.07 0 0 0 220.95,5.18 C 201.6,0 124,0 124,0 124,0 46.46,0 27.11,5.18 A 31.07,31.07 0 0 0 5.18,27.11 C 0,46.46 0,86.82 0,86.82 c 0,0 0,40.36 5.18,59.71 a 31.07,31.07 0 0 0 21.93,21.93 c 19.35,5.18 96.92,5.18 96.92,5.18 0,0 77.57,0 96.92,-5.18 a 31.07,31.07 0 0 0 21.93,-21.93 c 5.18,-19.35 5.18,-59.71 5.18,-59.71 0,0 0,-40.36 -5.18,-59.71 z\' /%3E%3Cpath style=\'fill:%23ffffff\' id=\'path8\' d=\'M 99.22,124.03 163.67,86.82 99.22,49.61 Z\' /%3E%3Cpath style=\'fill:%23282828\' id=\'path10\' d=\'m 358.29,55.1 v 6 c 0,30 -13.3,47.53 -42.39,47.53 h -4.43 v 52.5 H 287.71 V 12.36 H 318 c 27.7,0 40.29,11.71 40.29,42.74 z m -25,2.13 c 0,-21.64 -3.9,-26.78 -17.38,-26.78 h -4.43 v 60.48 h 4.08 c 12.77,0 17.74,-9.22 17.74,-29.26 z m 81.22,-6.56 -1.24,28.2 c -10.11,-2.13 -18.45,-0.53 -22.17,6 v 76.26 H 367.52 V 52.44 h 18.8 L 388.45,76 h 0.89 c 2.48,-17.2 10.46,-25.89 20.75,-25.89 a 22.84,22.84 0 0 1 4.42,0.56 z M 441.64,115 v 5.5 c 0,19.16 1.06,25.72 9.22,25.72 7.8,0 9.58,-6 9.75,-18.44 l 21.1,1.24 c 1.6,23.41 -10.64,33.87 -31.39,33.87 -25.18,0 -32.63,-16.49 -32.63,-46.46 v -19 c 0,-31.57 8.34,-47 33.34,-47 25.18,0 31.57,13.12 31.57,45.93 V 115 Z m 0,-22.35 v 7.8 h 17.91 V 92.7 c 0,-20 -1.42,-25.72 -9,-25.72 -7.58,0 -8.91,5.86 -8.91,25.72 z M 604.45,79 v 82.11 H 580 V 80.82 c 0,-8.87 -2.31,-13.3 -7.63,-13.3 -4.26,0 -8.16,2.48 -10.82,7.09 a 35.59,35.59 0 0 1 0.18,4.43 v 82.11 H 537.24 V 80.82 c 0,-8.87 -2.31,-13.3 -7.63,-13.3 -4.26,0 -8,2.48 -10.64,6.92 v 86.72 H 494.5 V 52.44 h 19.33 L 516,66.28 h 0.35 c 5.5,-10.46 14.37,-16.14 24.83,-16.14 10.29,0 16.14,5.14 18.8,14.37 5.68,-9.4 14.19,-14.37 23.94,-14.37 14.86,0 20.53,10.64 20.53,28.86 z m 12.24,-54.4 c 0,-11.71 4.26,-15.07 13.3,-15.07 9.22,0 13.3,3.9 13.3,15.07 0,12.06 -4.08,15.08 -13.3,15.08 -9.04,-0.01 -13.3,-3.02 -13.3,-15.08 z m 1.42,27.84 h 23.41 v 108.72 h -23.41 z m 103.39,0 v 108.72 h -19.15 l -2.13,-13.3 h -0.53 c -5.5,10.64 -13.48,15.07 -23.41,15.07 -14.54,0 -21.11,-9.22 -21.11,-29.26 V 52.44 h 24.47 v 79.81 c 0,9.58 2,13.48 6.92,13.48 A 12.09,12.09 0 0 0 697,138.81 V 52.44 Z M 845.64,79 v 82.11 H 821.17 V 80.82 c 0,-8.87 -2.31,-13.3 -7.63,-13.3 -4.26,0 -8.16,2.48 -10.82,7.09 A 35.59,35.59 0 0 1 802.9,79 v 82.11 H 778.43 V 80.82 c 0,-8.87 -2.31,-13.3 -7.63,-13.3 -4.26,0 -8,2.48 -10.64,6.92 v 86.72 H 735.69 V 52.44 H 755 l 2.13,13.83 h 0.35 c 5.5,-10.46 14.37,-16.14 24.83,-16.14 10.29,0 16.14,5.14 18.8,14.37 5.68,-9.4 14.19,-14.37 23.94,-14.37 14.95,0.01 20.59,10.65 20.59,28.87 z\' /%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A";
@@ -113,10 +195,15 @@
     // =========================
     //         YouTube
     // =========================
+    
+    const YT_LOGO_STYLE_ID = 'nexus-yt-logo-style';
+    const ytLogoOriginals = new WeakMap();
+    let ytLogoApplied = false;
+    let ytPremiumRemoved = false;
+    let ytObserver = null;
 
-    function setupYouTubeObserver() {
-        if (config.ytLogo) {
-            const css = `
+    function buildYtLogoStyle() {
+        const css = `
                 #logo-container .logo,
                 .footer-logo-icon,
                 #logo-icon,
@@ -133,22 +220,65 @@
                     content: url("${LOGO_SMALL}") !important;
                 }
             `;
-            const style = document.createElement("style");
-            style.textContent = css;
-            document.head.appendChild(style);
+        const style = document.createElement("style");
+        style.id = YT_LOGO_STYLE_ID;
+        style.textContent = css;
+        return style;
+    }
+
+    function restoreYtLogos() {
+        ytLogoApplied = false;
+        document.querySelectorAll('ytd-logo > yt-icon > span > div > svg').forEach(svg => {
+            const saved = ytLogoOriginals.get(svg);
+            if (!saved) return;
+            svg.innerHTML = saved.html;
+            svg.setAttribute('width', saved.width);
+            svg.setAttribute('viewBox', saved.viewBox);
+            const logoParent = svg.closest('ytd-logo');
+            if (logoParent) {
+                if (saved.redLogo === null) logoParent.removeAttribute('is-red-logo');
+                else logoParent.setAttribute('is-red-logo', saved.redLogo);
+            }
+            ytLogoOriginals.delete(svg);
+        });
+    }
+
+    function applyYtBranding() {
+        if (!document.head) {
+            setTimeout(applyYtBranding, 50);
+            return;
         }
+        const existing = document.getElementById(YT_LOGO_STYLE_ID);
+        if (config.ytLogo) {
+            if (!existing) document.head.appendChild(buildYtLogoStyle());
+        } else {
+            if (existing) existing.remove();
+            restoreYtLogos();
+        }
+        startYtObserver();
+    }
 
-        let logoModified = !config.ytLogo;
-        let premiumButtonRemoved = false;
+    function startYtObserver() {
+        if (!document.body) {
+            setTimeout(startYtObserver, 50);
+            return;
+        }
+        if (ytObserver) {
+            try { ytObserver.disconnect(); } catch (e) {}
+        }
+        ytObserver = new MutationObserver(ytBrandingCallback);
+        ytObserver.observe(document.body, { childList: true, subtree: true });
+        ytBrandingCallback();
+    }
 
-        const observerCallback = (mutations, observer) => {
+    function ytBrandingCallback() {
             const signInBtn = document.querySelector("a[href^='https://accounts.google.com']");
             if (signInBtn) {
-                observer.disconnect();
+                if (ytObserver) ytObserver.disconnect();
                 return;
             }
 
-            if (!logoModified) {
+            if (config.ytLogo && !ytLogoApplied) {
                 const pfp = document.querySelector("#avatar-btn");
                 let ytdLogos = document.querySelectorAll("ytd-logo > yt-icon > span > div");
                 if (pfp && ytdLogos.length > 0) {
@@ -157,6 +287,15 @@
                         ytdLogos.forEach(ytdLogo => {
                             const ytdLogoSvg = ytdLogo.querySelector("svg");
                             if (ytdLogoSvg) {
+                                if (!ytLogoOriginals.has(ytdLogoSvg)) {
+                                    const origParent = ytdLogoSvg.closest('ytd-logo');
+                                    ytLogoOriginals.set(ytdLogoSvg, {
+                                        html: ytdLogoSvg.innerHTML,
+                                        width: ytdLogoSvg.getAttribute('width') || '101',
+                                        viewBox: ytdLogoSvg.getAttribute('viewBox') || '0 0 101 20',
+                                        redLogo: origParent ? origParent.getAttribute('is-red-logo') : null
+                                    });
+                                }
                                 ytdLogoSvg.setAttribute('width', '101');
                                 ytdLogoSvg.setAttribute('viewBox', '0 0 101 20');
                                 const logoParent = ytdLogoSvg.closest('ytd-logo');
@@ -164,49 +303,65 @@
                                 ytdLogoSvg.innerHTML = '<g><path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="#FF0033"/><path d="M19 10L11.5 5.75V14.25L19 10Z" fill="white"/></g><g id="youtube-paths_yt19"><path d="M32.1819 2.10016V18.9002H34.7619V12.9102H35.4519C38.8019 12.9102 40.5619 11.1102 40.5619 7.57016V6.88016C40.5619 3.31016 39.0019 2.10016 35.7219 2.10016H32.1819ZM37.8619 7.63016C37.8619 10.0002 37.1419 11.0802 35.4019 11.0802H34.7619V3.95016H35.4519C37.4219 3.95016 37.8619 4.76016 37.8619 7.13016V7.63016Z"/><path d="M41.982 18.9002H44.532V10.0902C44.952 9.37016 45.992 9.05016 47.302 9.32016L47.462 6.33016C47.292 6.31016 47.142 6.29016 47.002 6.29016C45.802 6.29016 44.832 7.20016 44.342 8.86016H44.162L43.952 6.54016H41.982V18.9002Z"/><path d="M55.7461 11.5002C55.7461 8.52016 55.4461 6.31016 52.0161 6.31016C48.7861 6.31016 48.0661 8.46016 48.0661 11.6202V13.7902C48.0661 16.8702 48.7261 19.1102 51.9361 19.1102C54.4761 19.1102 55.7861 17.8402 55.6361 15.3802L53.3861 15.2602C53.3561 16.7802 53.0061 17.4002 51.9961 17.4002C50.7261 17.4002 50.6661 16.1902 50.6661 14.3902V13.5502H55.7461V11.5002ZM51.9561 7.97016C53.1761 7.97016 53.2661 9.12016 53.2661 11.0702V12.0802H50.6661V11.0702C50.6661 9.14016 50.7461 7.97016 51.9561 7.97016Z"/><path d="M60.1945 18.9002V8.92016C60.5745 8.39016 61.1945 8.07016 61.7945 8.07016C62.5645 8.07016 62.8445 8.61016 62.8445 9.69016V18.9002H65.5045L65.4845 8.93016C65.8545 8.37016 66.4845 8.04016 67.1045 8.04016C67.7745 8.04016 68.1445 8.61016 68.1445 9.69016V18.9002H70.8045V9.49016C70.8045 7.28016 70.0145 6.27016 68.3445 6.27016C67.1845 6.27016 66.1945 6.69016 65.2845 7.67016C64.9045 6.76016 64.1545 6.27016 63.0845 6.27016C61.8745 6.27016 60.7345 6.79016 59.9345 7.76016H59.7845L59.5945 6.54016H57.5445V18.9002H60.1945Z"/><path d="M74.0858 4.97016C74.9858 4.97016 75.4058 4.67016 75.4058 3.43016C75.4058 2.27016 74.9558 1.91016 74.0858 1.91016C73.2058 1.91016 72.7758 2.23016 72.7758 3.43016C72.7758 4.67016 73.1858 4.97016 74.0858 4.97016ZM72.8658 18.9002H75.3958V6.54016H72.8658V18.9002Z"/><path d="M79.9516 19.0902C81.4116 19.0902 82.3216 18.4802 83.0716 17.3802H83.1816L83.2916 18.9002H85.2816V6.54016H82.6416V16.4702C82.3616 16.9602 81.7116 17.3202 81.1016 17.3202C80.3316 17.3202 80.0916 16.7102 80.0916 15.6902V6.54016H77.4616V15.8102C77.4616 17.8202 78.0416 19.0902 79.9516 19.0902Z"/><path d="M90.0031 18.9002V8.92016C90.3831 8.39016 91.0031 8.07016 91.6031 8.07016C92.3731 8.07016 92.6531 8.61016 92.6531 9.69016V18.9002H95.3131L95.2931 8.93016C95.6631 8.37016 96.2931 8.04016 96.9131 8.04016C97.5831 8.04016 97.9531 8.61016 97.9531 9.69016V18.9002H100.613V9.49016C100.613 7.28016 99.8231 6.27016 98.1531 6.27016C96.9931 6.27016 96.0031 6.69016 95.0931 7.67016C94.7131 6.76016 93.9631 6.27016 92.8931 6.27016C91.6831 6.27016 90.5431 6.79016 89.7431 7.76016H89.5931L89.4031 6.54016H87.3531V18.9002H90.0031Z"/></g>';
                             }
                         });
-                        logoModified = true;
+                        ytLogoApplied = true;
                     }, 50);
                 }
             }
 
-            if (!premiumButtonRemoved) {
+            if (!ytPremiumRemoved) {
                 const premiumLink = document.querySelector('a#endpoint[href="/premium"]');
                 if (premiumLink) {
                     const entryToRemove = premiumLink.closest('ytd-guide-entry-renderer');
                     if (entryToRemove) {
                         entryToRemove.remove();
-                        premiumButtonRemoved = true;
+                        ytPremiumRemoved = true;
                     }
                 }
             }
 
-            if (logoModified && premiumButtonRemoved) {
-                observer.disconnect();
-            }
-        };
-
-        const observer = new MutationObserver(observerCallback);
-        observer.observe(document.body, { childList: true, subtree: true });
-        observerCallback([], observer);
+        if ((!config.ytLogo || ytLogoApplied) && ytPremiumRemoved && ytObserver) {
+            ytObserver.disconnect();
+        }
     }
 
     // =========================
     //       YouTube Music
     // =========================
+    
+    const musicLogoOriginals = new WeakMap();
+    let refreshMusicLogos = () => {};
+
+    function refreshBranding() {
+        if (location.hostname.includes('music.youtube.com')) {
+            refreshMusicLogos();
+        } else {
+            applyYtBranding();
+        }
+    }
 
     function setupYouTubeMusicObserver() {
         const MUSIC_LOGO_SVG = '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="98.543" height="24" fill="none"><clipPath id="a"><path d="M0 0h77v26H0Z"/></clipPath><g clip-path="url(#a)" transform="scale(.92308)"><path fill="#f03" d="M13 26c7.176 0 13-5.824 13-13S20.176 0 13 0 0 5.824 0 13s5.824 13 13 13"/><path stroke="#fff" d="M20.5 13c0 4.144-3.356 7.5-7.5 7.5A7.5 7.5 0 0 1 5.5 13c0-4.144 3.356-7.5 7.5-7.5s7.5 3.356 7.5 7.5z"/><path fill="#fff" d="m17.75 13-7.5-4.25v8.5z"/></g><g style="display:inherit;fill:#fff;fill-opacity:1"><path d="M32.182 2.1v16.8h2.58v-5.99h.69c3.35 0 5.11-1.8 5.11-5.34v-.69c0-3.57-1.56-4.78-4.84-4.78zm5.68 5.53c0 2.37-.72 3.45-2.46 3.45h-.64V3.95h.69c1.97 0 2.41.81 2.41 3.18zM41.982 18.9h2.55v-8.81c.42-.72 1.46-1.04 2.77-.77l.16-2.99c-.17-.02-.32-.04-.46-.04-1.2 0-2.17.91-2.66 2.57h-.18l-.21-2.32h-1.97zM55.746 11.5c0-2.98-.3-5.19-3.73-5.19-3.23 0-3.95 2.15-3.95 5.31v2.17c0 3.08.66 5.32 3.87 5.32 2.54 0 3.85-1.27 3.7-3.73l-2.25-.12c-.03 1.52-.38 2.14-1.39 2.14-1.27 0-1.33-1.21-1.33-3.01v-.84h5.08zm-3.79-3.53c1.22 0 1.31 1.15 1.31 3.1v1.01h-2.6v-1.01c0-1.93.08-3.1 1.29-3.1M60.195 18.9V8.92c.38-.53 1-.85 1.6-.85.77 0 1.05.54 1.05 1.62v9.21h2.66l-.02-9.97c.37-.56 1-.89 1.62-.89.67 0 1.04.57 1.04 1.65v9.21h2.66V9.49c0-2.21-.79-3.22-2.46-3.22-1.16 0-2.15.42-3.06 1.4-.38-.91-1.13-1.4-2.2-1.4-1.21 0-2.35.52-3.15 1.49h-.15l-.19-1.22h-2.05V18.9ZM74.086 4.97c.9 0 1.32-.3 1.32-1.54 0-1.16-.45-1.52-1.32-1.52-.88 0-1.31.32-1.31 1.52 0 1.24.41 1.54 1.31 1.54m-1.22 13.93h2.53V6.54h-2.53zM79.952 19.09c1.46 0 2.37-.61 3.12-1.71h.11l.11 1.52h1.99V6.54h-2.64v9.93c-.28.49-.93.85-1.54.85-.77 0-1.01-.61-1.01-1.63V6.54h-2.63v9.27c0 2.01.58 3.28 2.49 3.28M90.003 18.9V8.92c.38-.53 1-.85 1.6-.85.77 0 1.05.54 1.05 1.62v9.21h2.66l-.02-9.97c.37-.56 1-.89 1.62-.89.67 0 1.04.57 1.04 1.65v9.21h2.66V9.49c0-2.21-.79-3.22-2.46-3.22-1.16 0-2.15.42-3.06 1.4-.38-.91-1.13-1.4-2.2-1.4-1.21 0-2.35.52-3.15 1.49h-.15l-.19-1.22h-2.05V18.9Z" style="fill:#fff;fill-opacity:1" transform="matrix(.92322 0 0 .9259 -1.911 2.734)"/></g></svg>';
 
         function updateMusicLogo() {
-            if (!config.musicLogo) return;
             const ytMusicLogos = document.querySelectorAll("ytmusic-logo > a, ytmusic-logo, .ytmusic-nav-bar ytmusic-logo");
             ytMusicLogos.forEach(ytMusicLogo => {
+                if (!config.musicLogo) {
+                    const saved = musicLogoOriginals.get(ytMusicLogo);
+                    if (saved === undefined) return;
+                    ytMusicLogo.innerHTML = saved;
+                    delete ytMusicLogo.dataset.logoModified;
+                    musicLogoOriginals.delete(ytMusicLogo);
+                    return;
+                }
                 if (!ytMusicLogo.dataset.logoModified) {
+                    musicLogoOriginals.set(ytMusicLogo, ytMusicLogo.innerHTML);
                     ytMusicLogo.innerHTML = MUSIC_LOGO_SVG;
                     ytMusicLogo.dataset.logoModified = 'true';
                 }
             });
         }
+
+        refreshMusicLogos = updateMusicLogo;
 
         const observer = new MutationObserver(() => {
             updateMusicLogo();
@@ -267,7 +422,7 @@
     PAGE.nexusAdReport = () => {
         const summary = adDebug.summary();
         console.table(summary);
-        console.log('[NexusPatch] toplam olay:', adDebug.events.length);
+        console.log(`[NexusPatch] ${T.total}:`, adDebug.events.length);
         return summary;
     };
     PAGE.nexusAdSelfTest = () => {
@@ -275,9 +430,152 @@
         const parsed = JSON.parse(payload);
         const clean = !('playerAds' in parsed) && !('adPlacements' in parsed) &&
             !('adBreakHeartbeatParams' in parsed) && parsed.keep && parsed.keep.ok === true;
-        console.log(clean ? '[NexusPatch] SELFTEST PASS' : '[NexusPatch] SELFTEST FAIL', parsed);
+        console.log(`[NexusPatch] ${clean ? T.pass : T.fail}`, parsed);
         return clean;
     };
+
+    const SCRIPT_VERSION = '5.2.0';
+    const REPORT_ISSUE_URL = 'https://github.com/enswrdev/yt-nexuspatch/issues/new';
+    const REPORT_FEEDBACK_URL = 'https://greasyfork.org/scripts/596625/feedback';
+    const REPORT_EVENT_LIMIT = 40;
+
+    function collectAdReport() {
+        const player = document.getElementById('movie_player');
+        const video = player ? player.querySelector('video') : null;
+        const summary = adDebug.summary();
+        const present = [];
+        AD_NODE_SELECTORS.forEach(selector => {
+            try {
+                const count = document.querySelectorAll(selector).length;
+                if (count) present.push(selector + ' x' + count);
+            } catch (e) {}
+        });
+        const lines = [];
+        lines.push('### Nexus Patch ad report');
+        lines.push('');
+        lines.push('- Script version: ' + SCRIPT_VERSION);
+        lines.push('- Time: ' + new Date().toISOString());
+        lines.push('- Page: ' + location.href);
+        lines.push('- Platform: ' + (location.hostname.includes('music.youtube.com') ? 'YouTube Music' : 'YouTube'));
+        lines.push('- Browser: ' + navigator.userAgent);
+        lines.push('- Languages: ' + ((navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language]).join(', '));
+        lines.push('- Options: ' + MENU_ITEMS.map(key => key + '=' + (config[key] ? 'on' : 'off')).join(', '));
+        lines.push('- Player: ' + (player ? (player.classList.contains('ad-showing') ? 'ad-showing' : 'idle') : 'not found'));
+        if (video) {
+            lines.push('- Video: ' + Math.round(video.currentTime || 0) + 's / ' + Math.round(video.duration || 0) +
+                's, rate ' + video.playbackRate + ', muted ' + video.muted + ', paused ' + video.paused);
+        }
+        lines.push('- Enforcement dialog present: ' + (document.querySelector('ytd-enforcement-message-view-model') ? 'yes' : 'no'));
+        lines.push('- Ad nodes still in DOM: ' + (present.length ? present.join(', ') : 'none'));
+        lines.push('- Total events captured: ' + adDebug.events.length);
+        lines.push('');
+        lines.push('### Event counts');
+        lines.push('');
+        const counts = Object.keys(summary);
+        if (counts.length) counts.forEach(key => lines.push('- ' + key + ': ' + summary[key]));
+        else lines.push('- (none)');
+        lines.push('');
+        lines.push('### Last ' + Math.min(REPORT_EVENT_LIMIT, adDebug.events.length) + ' events');
+        lines.push('');
+        lines.push('```text');
+        adDebug.events.slice(-REPORT_EVENT_LIMIT).forEach(entry => {
+            let detail = '';
+            try { detail = entry.detail ? ' ' + JSON.stringify(entry.detail) : ''; } catch (e) {}
+            lines.push(entry.at + ' ' + entry.type + detail);
+        });
+        lines.push('```');
+        lines.push('');
+        lines.push('_Report generated by Nexus Patch. Remove anything you consider private before submitting._');
+        return lines.join('\n');
+    }
+
+    function copyTextFallback(text) {
+        try {
+            const area = document.createElement('textarea');
+            area.value = text;
+            area.setAttribute('readonly', '');
+            area.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+            (document.body || document.documentElement).appendChild(area);
+            area.select();
+            const ok = document.execCommand('copy');
+            area.remove();
+            return ok;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function reportIssueUrl(report) {
+        const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
+        const title = '[Ad report] ' + location.hostname + ' — ' + stamp;
+        const body = report.length > 6000
+            ? report.slice(0, 6000) + '\n\n_(trimmed to fit the URL - paste the full clipboard text if needed)_'
+            : report;
+        return REPORT_ISSUE_URL + '?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body);
+    }
+
+    function showReportPanel(report, copied) {
+        const previous = document.getElementById('nexus-report-panel');
+        if (previous) previous.remove();
+        const panel = document.createElement('div');
+        panel.id = 'nexus-report-panel';
+        panel.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:2147483647;width:min(430px,calc(100vw - 32px));background:#1f1f1f;color:#f1f1f1;border:1px solid #e01e37;border-radius:12px;padding:14px;font:13px/1.45 system-ui,-apple-system,sans-serif;box-shadow:0 12px 32px rgba(0,0,0,.5);';
+        const title = document.createElement('div');
+        title.textContent = copied ? T.reportCopied : T.reportFailed;
+        title.style.cssText = 'font-weight:700;margin-bottom:8px;line-height:1.35;';
+        const area = document.createElement('textarea');
+        area.value = report;
+        area.readOnly = true;
+        area.style.cssText = 'width:100%;height:120px;resize:vertical;background:#101010;color:#ddd;border:1px solid #333;border-radius:8px;padding:8px;font:11px/1.4 ui-monospace,monospace;box-sizing:border-box;';
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;';
+        const base = 'flex:1 1 40%;text-align:center;text-decoration:none;padding:8px 10px;border-radius:8px;font:600 12px/1.2 system-ui,-apple-system,sans-serif;cursor:pointer;border:0;';
+        const issue = document.createElement('a');
+        issue.href = reportIssueUrl(report);
+        issue.target = '_blank';
+        issue.rel = 'noopener noreferrer';
+        issue.textContent = T.openIssue;
+        issue.style.cssText = base + 'background:#e01e37;color:#fff;';
+        const feedback = document.createElement('a');
+        feedback.href = REPORT_FEEDBACK_URL;
+        feedback.target = '_blank';
+        feedback.rel = 'noopener noreferrer';
+        feedback.textContent = T.feedback;
+        feedback.style.cssText = base + 'background:#3a3a3a;color:#fff;';
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.textContent = T.close;
+        close.style.cssText = base + 'background:#2a2a2a;color:#ddd;';
+        close.addEventListener('click', () => panel.remove());
+        row.append(issue, feedback, close);
+        panel.append(title, area, row);
+        (document.body || document.documentElement).appendChild(panel);
+        try { area.focus(); area.select(); } catch (e) {}
+        setTimeout(() => { if (panel.isConnected) panel.remove(); }, 30000);
+    }
+
+    function copyAdReport() {
+        const report = collectAdReport();
+        adDebug.push('report', { source: 'collected', events: adDebug.events.length });
+        let finished = false;
+        const finish = copied => {
+            if (finished) return;
+            finished = true;
+            adDebug.push('report', { source: copied ? 'copied' : 'manual' });
+            showReportPanel(report, copied);
+        };
+        try {
+            if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                navigator.clipboard.writeText(report).then(
+                    () => finish(true),
+                    () => finish(copyTextFallback(report))
+                );
+                setTimeout(() => finish(copyTextFallback(report)), 1500);
+                return;
+            }
+        } catch (e) {}
+        finish(copyTextFallback(report));
+    }
 
     const AD_KEYS = new Set([
         'adPlacements', 'adSlots', 'playerAds', 'adBreakHeartbeatParams',
@@ -450,16 +748,32 @@
     }
 
     const COMPLIANCE_TEXT = /sign in to confirm|not a bot|captcha|verify (?:your|it'?s)|doğrula|robot değil|giriş yap/i;
+    const AD_ENFORCEMENT_TEXT = /ad ?block(?:er|ers|ing)?|blocking ads|reklam engelleyici|bloqueador(?:es)? de (?:anuncios|publicidad)|werbeblocker|bloqueur de publicit|блокировщик рекламы|blocco (?:degli )?annunci/i;
+
+    function readDeepText(node) {
+        if (!node) return '';
+        let text = node.textContent || '';
+        if (node.shadowRoot) text += ' ' + (node.shadowRoot.textContent || '');
+        return text;
+    }
 
     function removeEnforcementDialogs() {
         if (!config.adBlock) return;
         document.querySelectorAll('ytd-enforcement-message-view-model').forEach(view => {
-            if (COMPLIANCE_TEXT.test(view.textContent || '')) return;
+            if (!view.isConnected) return;
             const dialog = view.closest('tp-yt-paper-dialog') || view;
+            const text = readDeepText(view) + ' ' + readDeepText(dialog);
+            const adWarning = AD_ENFORCEMENT_TEXT.test(text);
+            if (!adWarning && COMPLIANCE_TEXT.test(text)) return;
             dialog.remove();
-            const backdrop = document.querySelector('tp-yt-iron-overlay-backdrop');
-            if (backdrop) backdrop.remove();
-            adDebug.push('enforcement', { source: 'dialog-removed' });
+            document.querySelectorAll('tp-yt-iron-overlay-backdrop').forEach(backdrop => backdrop.remove());
+            document.documentElement.style.removeProperty('overflow');
+            document.querySelectorAll('#movie_player').forEach(player => {
+                if (typeof player.playVideo === 'function') {
+                    try { player.playVideo(); } catch (e) {}
+                }
+            });
+            adDebug.push('enforcement', { source: adWarning ? 'adblock-warning-removed' : 'dialog-removed' });
         });
     }
 
@@ -636,7 +950,7 @@
         if (window.location.hostname.includes('music.youtube.com')) {
             setupYouTubeMusicObserver();
         } else {
-            setupYouTubeObserver();
+            applyYtBranding();
         }
     }
 
