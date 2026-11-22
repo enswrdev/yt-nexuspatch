@@ -36,14 +36,50 @@ Built with simplicity and performance in mind, the script works automatically in
 - Supports light and dark themes.
 - Includes custom logo variations for different interface elements.
 
-### 🧹 Cosmetic Ad Filtering
+### 🧹 Ad Blocking
 
-- Hides selected advertisement elements across YouTube and YouTube Music.
-- Removes various promotional banners and sponsored interface elements.
-- Uses lightweight CSS-based filtering and dynamic DOM cleanup.
-- Automatically handles newly inserted elements during navigation.
+- Removes ad placements, ad slots and sponsored renderers from YouTube's player and feed responses before they reach the page.
+- Cleans `ytInitialPlayerResponse` and `ytInitialData` as they are assigned.
+- Hides remaining ad surfaces with lightweight CSS and removes ad nodes from the DOM.
+- Deletes grid cards left empty by a blocked ad so no blank boxes remain.
+- Skips stitched ad segments and accelerates any ad that still starts playing.
+- Removes the ad-blocker enforcement dialog without touching login or bot-verification prompts.
+- Works across YouTube and YouTube Music and handles single-page navigation.
 
-*Note: This is cosmetic filtering, not a network-level ad blocker. It does not guarantee that every advertisement will be blocked.*
+*Note: YouTube changes its delivery regularly and no userscript can guarantee every ad is blocked. Cosmetic filtering alone never stops playback-level ads, which is why the network and player layers are included.*
+
+#### Options Menu
+
+Click the userscript manager icon and open the Nexus Patch menu to toggle features on the fly. Each entry shows its current state:
+
+| Menu entry | What it controls |
+|---|---|
+| Console debug | Console logging of blocked ads, cosmetic removals, player actions and option changes |
+| YouTube Premium logo | The custom YouTube logo |
+| YouTube Music Premium logo | The custom YouTube Music logo |
+| Game blocking | Removal of Playables and gaming sections |
+| Ad blocking | Network, cosmetic and player-level ad filtering |
+| Copy ad report | Copies a diagnostic report of the current page and offers GitHub / GreasyFork links |
+
+Toggles are stored by the userscript manager and survive reloads. Logo toggles are applied and reverted immediately, without reloading the page.
+
+#### Ad Report
+
+When an ad or the ad-blocker warning still gets through, open the menu and choose **Copy ad report**. The script collects the page, the player state, the enabled options, the ad nodes still in the DOM and the recent event log, copies the whole thing as Markdown and shows a small panel with three actions:
+
+- **Open GitHub issue** — starts a new issue with the report already in the body.
+- **GreasyFork feedback** — opens the script's feedback page for a quick comment.
+- **Close** — dismisses the panel; it also hides itself after 30 seconds.
+
+If the browser blocks clipboard access, the same panel selects the report text so it can be copied manually. The report is only created on your device and is never sent anywhere by the script.
+
+#### Languages
+
+Menu labels, on/off states, the ad report panel and console summaries are translated for every language the script ships with: English, Turkish, Spanish, German, French, Russian, Brazilian Portuguese and Italian. The script picks the best match from your browser's language list and falls back to English, so no configuration is needed.
+
+#### Console Debugging
+
+With **Console debug** enabled, every action is printed to the browser console with a red `[NexusPatch]` prefix: pruned payload keys, cosmetic removals, player interventions, SSAP skips and option changes. In the console, `nexusAdReport()` prints a summary table of the collected events and `nexusAdSelfTest()` verifies that payload pruning is active.
 
 ### ✨ Interface Cleanup
 
@@ -84,7 +120,7 @@ Your userscript manager should automatically detect the script and prompt you to
 
 Visit either YouTube or YouTube Music. The script will initialize automatically and apply the modifications.
 
-No additional configuration is necessary.
+No configuration is required, but the userscript menu lets you switch individual features off whenever you want.
 
 
 ## Supported Platforms
@@ -138,6 +174,9 @@ Your feedback helps improve browser compatibility and make Nexus Patch accessibl
 yt-nexuspatch/
 ├── LICENSE
 ├── README.md
+├── greasyfork-descriptions.md
+├── social/
+│   └── promo-posts.md
 └── yt-nexuspatch.user.js
 ```
 
